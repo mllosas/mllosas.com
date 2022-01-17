@@ -18,26 +18,31 @@ export default async (req, res) => {
     subject: "MLLOSAS.COM New Contact Form Submission",
     text: notificationMessage,
     html: notificationMessage.replace(/\r\n/g, "<br>"),
+    tracking_settings: {
+      subscription_tracking: {
+        enable: false,
+      },
+    },
   };
-
-  const confirmationMessage = `
-  Thank you for contacting me, this is just a confirmation email to let you know 
-  that I've receieved your message and will get back to you as soon as I can. 
-  Thanks again!\r\n
-`;
 
   const confirmationData = {
     to: body.email,
     from: "contact@mllosas.com",
-    subject: "Thank you for contacting me.",
-    text: confirmationMessage,
-    html: confirmationMessage.replace(/\r\n/g, "<br>"),
+    subject: "It's Manny, I got your message.",
+    templateId: "d-ae0d8c859e704ca5bc511779ab0e7184",
+    dynamic_template_data: {
+      subject: "It's Manny, I got your message.",
+      name: body.name,
+    },
+    tracking_settings: {
+      subscription_tracking: {
+        enable: false,
+      },
+    },
   };
 
   sgMail.send(notificationData);
-  console.log(notificationData);
   sgMail.send(confirmationData);
-  console.log(confirmationData);
 
   res.status(200).json({ status: "Ok" });
 };
