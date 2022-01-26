@@ -44,22 +44,23 @@ export default function Contact() {
       <form onSubmit={handleSubmit(sendEmail)}>
         <div className="formRow">
           <input
+            className={errors.name && "error"}
             placeholder="Enter Your Name"
             {...register("name", { required: true })}
           />
           <input
+            className={errors.email && "error"}
             placeholder="Enter Your Email"
             {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
           />
         </div>
         <div className="formRow">
           <textarea
+            className={errors.message && "error"}
             placeholder="How can I help?"
             {...register("message", { required: true })}
           />
         </div>
-        {errors.email && <span>This field is required</span>}
-
         <input type="submit" />
       </form>
     </div>

@@ -105,6 +105,10 @@ form {
     &::placeholder {
       color: #c9d7eb;
     }
+
+    &.error {
+      outline: 2px solid red;
+    }
   }
 
   textarea {
@@ -126,6 +130,10 @@ form {
 
     &::placeholder {
       color: #c9d7eb;
+    }
+
+    &.error {
+      outline: 2px solid red;
     }
   }
 }
