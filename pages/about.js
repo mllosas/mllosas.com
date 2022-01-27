@@ -16,7 +16,7 @@ export default function About() {
         ambitious projects with positive people.
       </p>
       <p>
-        Want to talk? <a href="#">Contact Me!</a>
+        Want to talk? <a href="/contact">Contact Me!</a>
       </p>
     </div>
   );
